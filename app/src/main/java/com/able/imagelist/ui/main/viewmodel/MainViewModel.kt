@@ -6,9 +6,12 @@ import androidx.lifecycle.liveData
 import com.able.imagelist.data.repository.MainRepository
 import com.able.imagelist.util.Resource
 
+const val GROUP_NUMBER = 6
+
 class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
+
     val mPage = MutableLiveData<Int>(1)
-    val mCount = MutableLiveData<Int>(10)
+    val mCount = MutableLiveData<Int>(5)
     fun setPage(page: Int) {
         mPage.value = page
     }
@@ -16,6 +19,7 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
     fun setCount(count: Int) {
         mCount.value = count
     }
+
 
     val images = liveData {
         emit(Resource.loading(data = null))
