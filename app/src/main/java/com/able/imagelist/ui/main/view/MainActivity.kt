@@ -24,12 +24,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager: ViewPager2
 
-    private val mViewModel = lazy {
-        ViewModelProviders.of(
-            this,
-            ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
-        ).get(MainViewModel::class.java)
-    }
+//    private val mViewModel = lazy {
+//        ViewModelProviders.of(
+//            this,
+//            ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
+//        ).get(MainViewModel::class.java)
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,22 +58,22 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun setupObservers() {
-        mViewModel.value.images.observe(this, Observer {
-            it?.let { resource ->
-                when (resource.status) {
-                    Status.SUCCESS -> {
-                        AlertDialog.Builder(this).setMessage(it.toString()).show()
-                    }
-                    Status.ERROR -> {
-                        AlertDialog.Builder(this).setMessage(it.toString()).show()
-                    }
-                    Status.LOADING -> {
-                        AlertDialog.Builder(this).setMessage(it.toString()).show()
-                    }
-                }
-            }
-        })
-    }
+//    private fun setupObservers() {
+//        mViewModel.value.images.observe(this, Observer {
+//            it?.let { resource ->
+//                when (resource.status) {
+//                    Status.SUCCESS -> {
+//                        AlertDialog.Builder(this).setMessage(it.toString()).show()
+//                    }
+//                    Status.ERROR -> {
+//                        AlertDialog.Builder(this).setMessage(it.toString()).show()
+//                    }
+//                    Status.LOADING -> {
+//                        AlertDialog.Builder(this).setMessage(it.toString()).show()
+//                    }
+//                }
+//            }
+//        })
+//    }
 
 }
